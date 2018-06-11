@@ -1,0 +1,23 @@
+[
+  {
+    "album_id": 1,
+    "title": "Bonzai",
+    "description": "A lovable butler cat"
+  },
+  {
+    "album_id": 1,
+    "title": "Lola",
+    "description": "Devil's minion"
+  },
+  {
+    "album_id": 2,
+    "title": "Puchungo",
+    "description": "Portland's cutest"
+  },
+  {
+    "album_id": 2,
+    "title": "Seymour",
+    "description": "A cool corgi from Vancouver BC"
+  }
+
+]
