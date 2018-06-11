@@ -3,6 +3,8 @@ Image Gallery
 
 ## CodeWars Kata
 
+Complete [today's Kata](https://www.codewars.com/kata/reversed-strings)
+
 ## Lab
 
 This is a paired, multi-day lab. For day one, build out:
