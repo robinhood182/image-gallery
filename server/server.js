@@ -23,6 +23,42 @@ app.get('/api/albums', (req, res) => {
   });
 });
 
+app.get('/api/albums/:id', (req, res) => {
+
+  const albumPromise = client.query(`
+    SELECT *
+    FROM albums
+    WHERE albums.id = $1;
+  `,
+  [req.params.id]);
+  
+  const imagesPromise = client.query(`
+    SELECT id, album_id as "albumID", title, description, url
+    FROM images
+    WHERE album_id = $1;
+  `,
+  [req.params.id]);
+
+  Promise.all([albumPromise, imagesPromise])
+    .then(results => {
+      const albumResult = results[0];
+      const imagesResult = results[1];
+
+      if(albumResult.rows.length === 0) {
+        res.sendStatus(404);
+        return;
+      }
+
+      const album = albumResult.rows[0];
+      const images = imagesResult.rows;
+
+      album.images = images;
+
+      res.send(album);
+
+    });
+});
+
 app.post('/api/albums', (req, res) => {
   const body = req.body;
 
