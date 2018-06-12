@@ -10,9 +10,9 @@ client.query(`
   CREATE TABLE IF NOT EXISTS images (
     id SERIAL PRIMARY KEY,
     album_id INTEGER NOT NULL REFERENCES albums(id),
-    title VARCHAR(256),
+    title VARCHAR(256) NOT NULL,
     description VARCHAR(512),
-    url VARCHAR(512)
+    url VARCHAR(512) NOT NULL
   );
 `).then(
   () => console.log('create tables complete'),
