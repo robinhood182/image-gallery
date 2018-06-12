@@ -17,6 +17,7 @@ export default new VueRouter({
     {
       path: '/albums/:id',
       component: AlbumDetail,
+      props: true,
       children: [
         { path: 'thumbnail', component: ThumbnailViewer },
         { path: 'gallery', component: GalleryViewer },
