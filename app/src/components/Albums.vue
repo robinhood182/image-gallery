@@ -11,9 +11,16 @@
         </router-link>
       </li>
     </ul>
-    <AlbumForm
-      :onChange="handleAdd"
-    />
+    <div>
+      <p @click="adding = !adding">add</p>
+      <transition name="slide-vertical">
+        <AlbumForm
+          v-if="adding" 
+          :onChange="handleAdd"
+        />
+      </transition>
+    </div>
+
   </div>
 </template>
 
@@ -24,7 +31,8 @@ import AlbumForm from './AlbumForm';
 export default {
   data() {
     return {
-      albums: null
+      albums: null,
+      adding: false
     };
   },
   created() {
@@ -49,6 +57,24 @@ export default {
 </script>
 
 <style>
+.slide-vertical-enter-active, .slide-vertical-leave-active {
+  transition: all .5s ease;
+}
 
+.slide-vertical-enter, .slide-vertical-leave-to {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 </style>
 

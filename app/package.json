@@ -18,6 +18,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0-beta.16",
     "@vue/cli-service": "^3.0.0-beta.16",
     "cache-loader": "^1.2.2",
+    "eslint-plugin-html": "^4.0.3",
     "vue-template-compiler": "^2.5.16"
   },
   "eslintConfig": {
