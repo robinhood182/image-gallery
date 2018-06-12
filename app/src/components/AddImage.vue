@@ -2,9 +2,18 @@
   <div>
     <h1>Add New Image</h1>
     <form @submit.prevent="handleSubmit">
-      <input v-model="newImage.url" type="text" required>
-      <input v-model="newImage.title" type="text" required>
-      <textarea v-model="newImage.description"></textarea>
+      <label>
+        URL:
+        <input v-model="newImage.url" type="text" required>
+      </label>
+      <label>
+        Title:
+        <input v-model="newImage.title" type="text" required>
+      </label>
+      <label>
+        Description:
+        <textarea v-model="newImage.description"></textarea>
+      </label>
       <button type="submit">Add</button>
     </form>
   </div>
