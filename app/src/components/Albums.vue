@@ -11,22 +11,12 @@
         </router-link>
       </li>
     </ul>
-    <div>
-      <p @click="adding = !adding">add</p>
-      <transition name="slide-vertical">
-        <AlbumForm
-          v-if="adding" 
-          :onChange="handleAdd"
-        />
-      </transition>
-    </div>
-
+    <router-link :to="`/albums/new`">Add New Album</router-link>
   </div>
 </template>
 
 <script>
-import { getAlbums, addAlbum } from '../services/api';
-import AlbumForm from './AlbumForm';
+import { getAlbums } from '../services/api';
 
 export default {
   data() {
@@ -40,18 +30,6 @@ export default {
       .then(albums => {
         this.albums = albums;
       });
-  },
-  components: {
-    AlbumForm
-  },
-  methods: {
-    handleAdd(album) {
-      return addAlbum(album)
-        .then(saved => {
-          this.albums.push(saved);
-          this.$router.push(`/albums/${saved.id}`);
-        });
-    }
   }
 };
 </script>
