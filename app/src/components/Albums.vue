@@ -34,25 +34,17 @@ export default {
 };
 </script>
 
-<style>
-.slide-vertical-enter-active, .slide-vertical-leave-active {
-  transition: all .5s ease;
-}
+<style scoped>
+  div { 
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
 
-.slide-vertical-enter, .slide-vertical-leave-to {
-  transform: translateY(100px);
-  opacity: 0;
-}
-.slide-fade-enter-active {
-  transition: all .3s ease;
-}
-.slide-fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(10px);
-  opacity: 0;
-}
+  li {
+    list-style: none;
+    margin: 10px;
+    text-align: center;
+  }
 </style>
 

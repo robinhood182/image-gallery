@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is our Home</h1>
+    <h1>Welcome to the animals gallery</h1>
   </div>
 </template>
 
@@ -10,7 +10,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+h1 {
+  margin-top: 20%;
+  text-align: center;
+}
 
 </style>
 

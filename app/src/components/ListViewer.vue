@@ -4,7 +4,7 @@
     <table>
       <thead>
         <td>Title</td>
-        <td>Descriptiion</td>
+        <td>Description</td>
       </thead>
       <tbody>
         <tr v-for="image in images" :key="image.id">

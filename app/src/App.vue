@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <h1>Image Gallery</h1>
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/">Home</router-link>
       <router-link to="/albums">Albums</router-link>
+      <router-link to="/about">About</router-link>
     </nav>
     <router-view/>
   </div>
@@ -17,6 +16,46 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+#app {
+  font-family: Geneva, Verdana, Tahoma, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  color: white;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: rgb(44, 44, 44); */
+  height: 35px;
+}
+
+a {
+  width: 33%;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid white;
+  background-color: rgb(44, 44, 44);
+
+}
+a:hover {
+  width: 33%;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  text-align: center;
+  border: 2px solid white;
+  background-color: rgb(119, 119, 119);
+
+}
+
 
 </style>
