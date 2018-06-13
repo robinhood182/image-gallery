@@ -6,6 +6,18 @@
     "url": "https://i.imgur.com/Nzg44ix.jpg"
   },
   {
+    "album_id": 1,
+    "title": "Sous Chef",
+    "description": "Bonzai helping out in the kitchen...",
+    "url": "https://i.imgur.com/Msg4Aso.jpg"
+  },
+  {
+    "album_id": 1,
+    "title": "Bonzai plz",
+    "description": "Get off the table.",
+    "url": "https://i.imgur.com/fFlULPH.jpg"
+  },
+  {
     "album_id": 2,
     "title": "Lola Rolling",
     "description": "Spring 2016",
@@ -77,6 +89,35 @@
     "title": "Too Handsome",
     "description": "What an angel!",
     "url": "https://i.imgur.com/FEGaX1S.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Pawesome",
+    "description": "I think he wants me to take his paw",
+    "url": "https://i.imgur.com/FApE2AV.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Sunday Walk Time",
+    "description": "Nothing gets those ears more perked than a walk.",
+    "url": "https://i.imgur.com/kux0vra.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Towel Seymour",
+    "description": "Gotta dry off.",
+    "url": "https://i.imgur.com/fTwBVbo.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Sad Seymour",
+    "description": "He wishes he had treats.",
+    "url": "https://i.imgur.com/LaSvcFU.jpg"
+  },
+  {
+    "album_id": 4,
+    "title": "Rabbit Seymour",
+    "description": "Ears look the same length.",
+    "url": "https://i.imgur.com/J9bH6df.jpg"
   }
-
 ]
