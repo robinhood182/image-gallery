@@ -35,7 +35,8 @@ app.get('/api/albums/:id', (req, res) => {
   const imagesPromise = client.query(`
     SELECT id, album_id as "albumID", title, description, url
     FROM images
-    WHERE album_id = $1;
+    WHERE album_id = $1
+    ORDER BY id;
   `,
   [req.params.id]);
 
@@ -105,7 +106,22 @@ app.post('/api/images', (req, res) => {
   });
 });
 
+app.put('/api/images/:id', (req, res) => {
+  const body = req.body;
 
+  client.query(`
+    UPDATE images
+    SET
+      title = $1,
+      description = $2
+    WHERE id = $3
+    RETURNING *;
+  `,
+  [body.title, body.description, req.params.id]
+  ).then(result => {
+    res.send(result.rows[0]);
+  });
+});
 
 
 
