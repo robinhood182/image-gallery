@@ -18,6 +18,7 @@ app.get('/api/albums', (req, res) => {
       title,
       description
     FROM albums
+    ORDER BY id;
   `).then(result => {
     res.send(result.rows);
   });
@@ -74,8 +75,37 @@ app.post('/api/albums', (req, res) => {
   });
 });
 
+app.put('/api/albums/:id', (req, res) => {
+  const body = req.body;
 
+  client.query(`
+    UPDATE albums
+    SET
+      title = $1,
+      description = $2
+    WHERE id = $3
+    RETURNING *;
+  `,
+  [body.title, body.description, req.params.id]
+  ).then(result => {
+    res.send(result.rows[0]);
+  });
+});
 
+app.delete('/api/albums/:id', (req, res) => {
+  client.query(`
+    DELETE FROM images where album_id = $1;
+  `,
+  [req.params.id]
+  )
+    .then(client.query(`
+      DELETE FROM albums where id = $1;
+  `,
+    [req.params.id]
+    )).then(() => {
+      res.send({ removed: true });
+    });
+});
 
 
 app.get('/api/images', (req, res) => {
@@ -123,6 +153,14 @@ app.put('/api/images/:id', (req, res) => {
   });
 });
 
-
+app.delete('/api/images/:id', (req, res) => {
+  client.query(`
+    DELETE FROM images where id = $1;
+  `,
+  [req.params.id]
+  ).then(() => {
+    res.send({ removed: true });
+  });
+});
 
 app.listen(3000, () => console.log('server running...'));
