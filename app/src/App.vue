@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Image Gallery</h1>
+    <h1>Petfolio</h1>
     <nav>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -18,5 +18,11 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
+h1 {
+  font-family: 'Economica', sans-serif;
+}
 </style>
