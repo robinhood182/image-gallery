@@ -46,5 +46,9 @@ export default {
 
 <style>
 
+  h1 {
+  font-family: 'Economica', sans-serif;
+  }
+
 </style>
 
