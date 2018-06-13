@@ -5,15 +5,32 @@
       <h1>Commemorate the ones you love</h1>
       <router-link to="/albums/new"><button>Get Started</button></router-link>
     </section>
+    <ul v-if="stats">
+      <li>Total albums: {{stats.count}}</li>
+      <li>Average memories per album: {{parseInt(stats.avg)}}</li>
+      <li>Least amount of memories per album: {{stats.min}}</li>
+      <li>Most amount of memories per album: {{stats.max}}</li>
+    </ul>
   </div>
 </template>
 
 <script>
+import { getStats } from '../services/api';
+
 export default {
-  // created() {
-  //   getStats() {
-  //   }
-  // }
+
+  data() {
+    return {
+      stats: null
+    };
+  },
+
+  created() {
+    getStats() 
+      .then(stats => {
+        this.stats = stats;
+      });
+  }
 };
 </script>
 

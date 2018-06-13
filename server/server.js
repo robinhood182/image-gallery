@@ -14,6 +14,7 @@ client.connect();
 app.get('/api/albums/stats', (req, res) => {
   client.query(`
   SELECT
+    count(*),
     avg("imageCount"),
     min("imageCount"),
     max("imageCount")

@@ -16,8 +16,8 @@ export function getAlbum(id) {
     .then(response => response.json());
 }
 
-export function getStats(id) {
-  return fetch(`${ALBUMS_URL}/${id}/stats`, {
+export function getStats() {
+  return fetch(`${ALBUMS_URL}/stats`, {
     headers: { 'Content-Type': 'application/json' }
   })
     .then(response => response.json());
