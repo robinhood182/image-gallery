@@ -11,19 +11,44 @@ const databaseUrl = 'postgres://localhost:5432/animals';
 const client = new Client(databaseUrl);
 client.connect();
 
+app.get('/api/albums/stats', (req, res) => {
+  client.query(`
+  SELECT
+    avg("imageCount"),
+    min("imageCount"),
+    max("imageCount")
+  FROM (  
+    SELECT
+        a.id,
+        a.title,
+        a.description,
+        count(i.id) as "imageCount"
+      FROM albums a
+      LEFT JOIN images i
+      ON a.id = i.album_id
+      GROUP BY a.id
+) p;
+  `).then(result => {
+    res.send(result.rows[0]);
+  });
+});
+
 app.get('/api/albums', (req, res) => {
   client.query(`
     SELECT
-      id,
-      title,
-      description
-    FROM albums
-    ORDER BY id;
+        a.id,
+        a.title,
+        a.description,
+        count(i.id) as "imageCount"
+      FROM albums a
+      LEFT JOIN images i
+      ON a.id = i.album_id
+      GROUP BY a.id
+      ORDER BY a.id;
   `).then(result => {
     res.send(result.rows);
   });
 });
-
 app.get('/api/albums/:id', (req, res) => {
 
   const albumPromise = client.query(`

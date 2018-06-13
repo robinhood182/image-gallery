@@ -16,6 +16,13 @@ export function getAlbum(id) {
     .then(response => response.json());
 }
 
+export function getStats(id) {
+  return fetch(`${ALBUMS_URL}/${id}/stats`, {
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json());
+}
+
 export function addAlbum(album) {
   return fetch(ALBUMS_URL, {
     method: 'POST',
