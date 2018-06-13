@@ -25,7 +25,7 @@ export default new VueRouter({
         { path: 'gallery', component: GalleryViewer },
         { path: 'list', component: ListViewer },
         { path: 'new', component: AddImage },
-        { path: '', redirect: 'thumbnail' }
+        { path: '', redirect: 'gallery' }
       ]
     }
   ]
