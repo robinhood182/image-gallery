@@ -199,6 +199,23 @@ app.delete('/api/images/:id', (req, res, next) => {
   })
     .catch(next);
 });
+
+app.post('/api/users', (req, res, next) => {
+  const body = req.body;
+
+  client.query(`
+    INSERT INTO users (username, password)
+    VALUES ($1, $2)
+    RETURNING *;
+  `,
+  [body.username, body.password]
+  ).then(result => {
+    res.send({ userID: result.rows[0].id });
+  })
+    .catch(next);
+});
+
+
 //eslint-disable-next-line
 app.use((err, req, res, next) => {
   console.log('***SERVER ERROR***\n', err);
