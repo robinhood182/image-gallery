@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Add Album</h1>
+    <pre v-if="error">{{ error }}</pre>
     <form @submit.prevent="handleAdd">
       <label>
         Title:
@@ -24,12 +25,16 @@ export default {
         title: '',
         description: ''
       },
+      error: null
     };
   },
   props: ['album'],
   methods: {
     handleAdd() {
       return addAlbum(this.newAlbum)
+        .catch(err => {
+          this.error = err;
+        })
         .then(saved => {
           this.$router.push(`/albums/${saved.id}`);
         });
