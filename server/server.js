@@ -1,6 +1,9 @@
 require('dotenv').config();
+
 const express = require('express');
 const app = express();
+
+//const request = require('superagent');
 
 const cors = require('cors');
 app.use(cors());
@@ -205,4 +208,5 @@ app.use((err, req, res, next) => {
   res.status(500).send({ message });
 });
 
-app.listen(3000, () => console.log('server running...'));
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log('server running on port', PORT));
