@@ -8,7 +8,9 @@
     </section>
   
     <div class="stats" @click="shown = !shown">
-        <h3 >Stats</h3>
+      <transition name="flip-list">
+        <h3>Stats</h3>
+      </transition>
       <transition name="slide">
         <section v-if="shown">
           <ul>
@@ -65,7 +67,8 @@ h1 {
 
 img {
   grid-area: picture;
-  width: 40%;
+  text-align: center;
+  width: 80%;
   border-radius: 25px;
 }
 
@@ -75,7 +78,6 @@ li {
 
 .stats {
   grid-area: stats;
-  background-color: rgb(88, 88, 88);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,6 +92,10 @@ li {
 }
 .slide-enter, .slide-leave-to {
   transform: translateY(50px);
+}
+
+.flip-list-move {
+  transition: transform 1s;
 }
 </style>
 
