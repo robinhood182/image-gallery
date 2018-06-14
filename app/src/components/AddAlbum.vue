@@ -23,7 +23,7 @@ export default {
       newAlbum: {
         title: '',
         description: ''
-      }
+      },
     };
   },
   props: ['album'],
