@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h3>Sign up</h3>
+    <h3>{{ isSignUp ? 'Sign Up' : 'Sign In' }}</h3>
+    <button
+      @click="isSignUp = !isSignUp"
+    >{{ isSignUp ? 'Sign In' : 'Sign Up' }}</button>
     <form @submit.prevent="handleSubmit">
       <label>
         Username:
@@ -10,7 +13,7 @@
         Password:
         <input v-model="user.password" type="password" required>
       </label>
-      <button type="submit">Sign Up</button>
+      <button type="submit">{{ isSignUp ? 'Sign Up' : 'Sign In' }}</button>
     </form>
   </div>
 </template>
@@ -20,6 +23,7 @@ import { addUser } from '../services/api';
 export default {
   data() {
     return {
+      isSignUp: false,
       user: {
         username: '',
         password: ''
