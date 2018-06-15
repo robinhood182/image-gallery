@@ -1,6 +1,7 @@
 const URL = '/api';
 const ALBUMS_URL = `${URL}/albums`;
 const IMAGES_URL = `${URL}/images`;
+const USERS_URL = `${URL}/users`;
 
 function responseHandler(response) {
   if(response.ok) return response.json();
@@ -52,6 +53,15 @@ export function addImage(image) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image)
+  })
+    .then(responseHandler);
+}
+
+export function addUser(user) {
+  return fetch(USERS_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user)
   })
     .then(responseHandler);
 }
